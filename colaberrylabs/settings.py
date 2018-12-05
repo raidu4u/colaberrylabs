@@ -83,6 +83,7 @@ DATABASES = {
         'PASSWORD': 'P@ssw0rd',
         'HOST': '127.0.0.1',
         'PORT': '',
+        'default-character-set' : 'utf8',
     }
 }
 
@@ -122,6 +123,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#Crispy form formatter
+CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+
+#Login
+
+LOGIN_REDIRECT_URL= 'home'
+
+LOGIN_URL='login'
