@@ -14,12 +14,23 @@
           <a class="navbar-brand logo" href="/">Colaberry Labs</a>
         </div>
         <ul class="nav navbar-nav pull-right">
+	  {% if user.is_authenticated %}
+	  <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="#">Profile</a></li>
+	  {% else %}
           <li><a href="{% url 'login' %}">Login</a></li>
           <li><a href="{% url 'register' %}">Register</a></li>
+	  {% endif %}
         </ul>
       </div>
     </nav>
     <div class="container">
+      {% if messages %}
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+      <p>{{ message }}</p>
       {% block content %}
       {% endblock content %}
     </div>
